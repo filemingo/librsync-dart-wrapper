@@ -5,10 +5,10 @@ gomobile:
 
 android:  gomobile
 	mkdir -p ~/workspace/filemingo/librsync_native/android/libs
-	gomobile bind -target=android -o ~/workspace/filemingo/librsync_native/android/libs/librsyncbridge.aar github.com/filemingo/librsync-dart-wrapper/bridge
+	gomobile bind -target=android -o ~/workspace/filemingo/librsync_native/android/libs/librsyncbridge.aar github.com/filemingo/librsync-dart-wrapper/librsyncbridge
 
 ios: gomobile
-	gomobile bind -target=ios -o LibRsyncBridge.xcframework github.com/filemingo/librsync-dart-wrapper/bridge/ios
+	gomobile bind -target=ios -o LibRsyncBridge.xcframework github.com/filemingo/librsync-dart-wrapper/librsyncbridge/ios
 
 flutter:
 	cd desktop && go build -o librsyncbridge.so -buildmode=c-shared main.go

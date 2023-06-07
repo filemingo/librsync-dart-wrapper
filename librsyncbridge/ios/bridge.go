@@ -19,15 +19,13 @@ import (
 	"unsafe"
 
 	librsyncdartwrapper "github.com/filemingo/librsync-dart-wrapper"
-	"github.com/filemingo/librsync-dart-wrapper/bridge"
+	"github.com/filemingo/librsync-dart-wrapper/librsyncbridge"
 	"github.com/filemingo/librsync-dart-wrapper/logging"
 )
 
 type CallbackWriter = librsyncdartwrapper.CallbackWriter
 
-type Stream interface {
-  bridge.Stream
-}
+type Stream = librsyncbridge.Stream
 
 func Test(signatureStr string, targetFilePath string, callback func([]byte)) {
 }
@@ -69,7 +67,7 @@ var initOnce sync.Once
 
 func Init() {
 	initOnce.Do(func() {
-		bridge.Init()
+		librsyncbridge.Init()
 		logging.AddLogger(iosLogger{})
 	})
 }
