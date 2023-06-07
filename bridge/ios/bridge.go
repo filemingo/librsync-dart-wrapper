@@ -25,9 +25,18 @@ import (
 
 type CallbackWriter = librsyncdartwrapper.CallbackWriter
 
-type Stream = bridge.Stream
+type Stream interface {
+  bridge.Stream
+}
 
-var ComputeDelta = bridge.ComputeDelta
+func Test(signatureStr string, targetFilePath string, callback func([]byte)) {
+}
+
+func ComputeDelta(signatureStr string, targetFilePath string, stream Stream) {
+	librsyncdartwrapper.ComputeDelta(signatureStr, targetFilePath, func(b []byte, i int) {
+		stream.Send(b, i)
+	})
+}
 
 type iosLogger struct {
 }

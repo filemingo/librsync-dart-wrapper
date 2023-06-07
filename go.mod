@@ -11,6 +11,7 @@ require (
 require (
 	github.com/balena-os/circbuf v0.1.3 // indirect
 	golang.org/x/crypto v0.7.0 // indirect
+	golang.org/x/mobile v0.0.0-20230531173138-3c911d8e3eda // indirect
 	golang.org/x/sys v0.6.0 // indirect
 )
 
